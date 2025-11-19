@@ -1,0 +1,1 @@
+# tabela do banco (SQLModel)

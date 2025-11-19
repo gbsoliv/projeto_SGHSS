@@ -1,0 +1,1 @@
+# formato de entrada/saída da API para o recurso Pessoa
