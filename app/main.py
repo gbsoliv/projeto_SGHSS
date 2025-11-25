@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
 from app.db.init_db import init_db
-from app.routers import pessoas
+from app.routers import pessoas, pacientes
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -20,6 +20,7 @@ app = FastAPI(
 
 # Inclui rotas
 app.include_router(pessoas.router)
+app.include_router(pacientes.router)
 
 
 @app.get("/ping")
