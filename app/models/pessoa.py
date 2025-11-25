@@ -4,9 +4,6 @@ from typing import Optional
 from sqlmodel import SQLModel, Field
 
 class Pessoa(SQLModel, table=True):
-
-    #Essa tabela é a base para Paciente, Profissional e Admin.
-    
     id_pessoa: Optional[int] = Field(default=None, primary_key=True)
     cpf: str
     nome: str

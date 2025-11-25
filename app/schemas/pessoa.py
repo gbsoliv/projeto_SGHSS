@@ -1,4 +1,4 @@
-# formato de entrada/saída da API para o recurso Pessoa
+# formato de entrada/saída da API para entidade Pessoa
 
 from typing import Optional
 from pydantic import BaseModel
@@ -14,7 +14,7 @@ class PessoaCreate(BaseModel):
     perfil: str  # PACIENTE, PROFISSIONAL, ADMIN
 
 
-  # 2. Schema de SAÍDA (GET)
+# 2. Schema de SAÍDA (GET)
 class PessoaRead(BaseModel):
     id_pessoa: int
     cpf: str

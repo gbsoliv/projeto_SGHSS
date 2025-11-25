@@ -1,15 +1,27 @@
 # ponto de entrada da aplicação FastAPI
 
 from fastapi import FastAPI
+from contextlib import asynccontextmanager
+
 from app.db.init_db import init_db
+from app.routers import pessoas
 
-app = FastAPI(title="SGHSS API")
-
-@app.on_event("startup")
-def on_startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Executa quando o servidor inicia
     init_db()
+    yield
 
-# endpoint de teste 
+
+app = FastAPI(
+    title="SGHSS API",
+    lifespan=lifespan
+)
+
+# Inclui rotas
+app.include_router(pessoas.router)
+
+
 @app.get("/ping")
 def ping():
-    return {"message": "testando"}
+    return {"message": "testando..."}
