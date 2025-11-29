@@ -10,7 +10,7 @@ from app.schemas.pessoa import PessoaCreate
 
 def criar_pessoa(session: Session, dados: PessoaCreate) -> Pessoa:
 
-    # Cria uma nova Pessoa no banco de dados.
+# Cria uma nova Pessoa no banco de dados.
 
     nova_pessoa = Pessoa(
         cpf=dados.cpf,
@@ -26,20 +26,16 @@ def criar_pessoa(session: Session, dados: PessoaCreate) -> Pessoa:
     session.refresh(nova_pessoa)
     return nova_pessoa
 
-
-def listar_pessoas(session: Session) -> List[Pessoa]:
+# Retorna todas as Pessoas cadastradas.
     
-    # Retorna todas as Pessoas cadastradas.
+def listar_pessoas(session: Session) -> List[Pessoa]:
     
     statement = select(Pessoa)
     resultado = session.exec(statement)
     return list(resultado.all())
 
-
+# busca uma Pessoa pelo id_pessoa.
 def buscar_pessoa_por_id(session: Session, id_pessoa: int) -> Optional[Pessoa]:
-    
-    # Busca uma Pessoa pelo id_pessoa.
-    
     statement = select(Pessoa).where(Pessoa.id_pessoa == id_pessoa)
     resultado = session.exec(statement)
     return resultado.first()
