@@ -1,4 +1,4 @@
-# tabela do banco (SQLModel)
+# tabela do bd > paciente (SQLModel)
 
 from typing import Optional
 from datetime import date

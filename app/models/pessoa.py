@@ -1,4 +1,4 @@
-# tabela do banco (SQLModel)
+# tabela do bd > pessoa (SQLModel)
 
 from typing import Optional
 from sqlmodel import SQLModel, Field

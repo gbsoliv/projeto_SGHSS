@@ -1,4 +1,4 @@
-# tabela do banco (SQLModel)
+# tabela do bd > Consulta (SQLModel)
 
 from typing import Optional
 from datetime import datetime
@@ -11,6 +11,6 @@ class Consulta(SQLModel, table=True):
   status: str = "AGENDADA"  # AGENDADA, CANCELADA, REALIZADA
 
 
-  # Relação com Paciente e Profissional de Saúde
+# relação Paciente + Profissional de Saúde
 id_paciente: int = Field(foreign_key="paciente.id_paciente")
 id_profissional: int = Field(foreign_key="profissionalsaude.id_profissional")

@@ -1,4 +1,4 @@
-# tabela do banco (SQLModel)
+# tabela do bd > ADM (SQLModel)
 
 from sqlmodel import SQLModel, Field
 from typing import Optional
