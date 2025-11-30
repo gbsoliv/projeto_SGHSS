@@ -1,6 +1,6 @@
 # endpoints da API
 
-from typing import List
+from typing import List, Sequence
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session
@@ -41,7 +41,7 @@ def agendar_consulta_endpoint(
         )
 
     # Verificar Profissional
-    profissional = buscar_profissional_por_id(session, dados.id_profissional_saude)
+    profissional = buscar_profissional_por_id(session, dados.id_profissional)
     if not profissional:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,

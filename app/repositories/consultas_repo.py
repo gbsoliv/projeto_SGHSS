@@ -13,9 +13,9 @@ def criar_consulta(
 ) -> Consulta:
     nova_consulta = Consulta(
         id_paciente=dados.id_paciente,
-        id_profissional=dados.id_profissional_saude,
+        id_profissional=dados.id_profissional,
         data_hora=dados.data_hora,
-        tipo=dados.tipo_consulta,
+        tipo=dados.tipo,
         link_teleconsulta=dados.link_teleconsulta,
     )
     session.add(nova_consulta)

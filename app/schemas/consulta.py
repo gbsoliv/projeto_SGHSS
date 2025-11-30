@@ -8,19 +8,19 @@ from datetime import datetime
 #inpouts p agendar uma consulta
 class ConsultaCreate(BaseModel):
     id_paciente: int
-    id_profissional_saude: int
+    id_profissional: int
     data_hora: datetime
-    tipo_consulta: str # Ex: "presencial", "online"
+    tipo: str # Ex: "presencial", "online"
     link_teleconsulta: Optional[str] = None
 
 class ConsultaRead(BaseModel):
-      id_consulta: int
-      id_paciente: int
-      id_profissional_saude: int
-      data_hora: datetime
-      tipo: str # Ex: "presencial", "online"
-      link_teleconsulta: Optional[str] = None
-      status: str  # Ex: "AGENDADA", "CANCELADA", "REALIZADA"
+    id_consulta: int
+    id_paciente: int
+    id_profissional: int
+    data_hora: datetime
+    tipo: str # Ex: "presencial", "online"
+    link_teleconsulta: Optional[str] = None
+    status: str  # Ex: "AGENDADA", "CANCELADA", "REALIZADA"
 
 class Config:
     from_attributes = True
