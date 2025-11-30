@@ -4,7 +4,7 @@ from typing import Optional
 from sqlmodel import SQLModel, Field
 
 class ProfissionalSaude(SQLModel, table=True):
-    id_profissional: int = Field(primary_key=True, foreign_key="pessoa.id_pessoa")
+    id_profissional: Optional[int] = Field(default=None, primary_key=True)
     especialidade: str
     crm: str
     disponibilidade: bool  # True = disponível, False = indisponível

@@ -26,6 +26,6 @@ app.include_router(administradores.router)
 app.include_router(consultas.router)
 
 
-@app.get("/ping")
+@app.get("/")
 def ping():
     return {"message": "testando..."}

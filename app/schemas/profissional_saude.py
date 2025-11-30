@@ -9,7 +9,7 @@ class ProfissionalSaudeCreate(BaseModel):
     disponibilidade: bool
 
 class ProfissionalSaudeRead(BaseModel):
-    id_pessoa: int
+    id_profissional: int
     especialidade: str
     crm: str
     unidade_saude: str

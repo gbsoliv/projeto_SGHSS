@@ -1,6 +1,6 @@
 # endpoints da API
 
-from typing import List
+from typing import List, Sequence
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session
@@ -55,15 +55,10 @@ def criar_profissional_saude_endpoint(
     return novo_profissional
 
 
-@router.get("/", response_model=List[ProfissionalSaudeRead])
-def listar_profissionais_saude_endpoint(
+@router.get("/", response_model=Sequence[ProfissionalSaudeRead])
+def listar_profissionais_endpoint(
     session: Session = Depends(get_session),
 ):
-    """
-    GET /profissionais_saude
-
-    Lista todos os Profissionais de Saúde cadastrados.
-    """
     profissionais = listar_profissionais_saude(session)
     return profissionais
 
