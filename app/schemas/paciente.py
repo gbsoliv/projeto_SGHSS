@@ -10,7 +10,6 @@ class PacienteCreate(BaseModel):
 
 class PacienteRead(BaseModel):
     id_paciente: int
-    id_pessoa: int
     data_nascimento: date
     convenio: bool
 

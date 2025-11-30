@@ -1,6 +1,6 @@
 # endpoints da API
 
-from typing import List
+from typing import List, Sequence
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session
@@ -19,17 +19,6 @@ router = APIRouter(
     prefix="/pacientes",
     tags=["Pacientes"],
 )
-
-
-
-"""
-    Cria um Paciente a partir de uma Pessoa existente.
-
-    1. Verifica se a Pessoa existe
-    2. Verifica se a Pessoa já não é Paciente
-    3. Cria o registro na tabela Paciente
-
-    """
 
 @router.post("/", response_model=PacienteRead, status_code=status.HTTP_201_CREATED)
 def criar_paciente_endpoint(
@@ -58,13 +47,10 @@ def criar_paciente_endpoint(
     return novo_paciente
 
 
-@router.get("/", response_model=List[PacienteRead])
+@router.get("/", response_model=Sequence[PacienteRead])
 def listar_pacientes_endpoint(
     session: Session = Depends(get_session),
 ):
-  
-    # Lista todos os Pacientes cadastrados.
-  
     pacientes = listar_pacientes(session)
     return pacientes
 

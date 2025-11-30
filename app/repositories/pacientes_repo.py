@@ -1,6 +1,6 @@
 # funções que acessam o banco de dados relacionadas a paciente 
 
-from typing import List, Optional
+from typing import List, Optional, Sequence
 
 from sqlmodel import Session, select
 
@@ -24,10 +24,10 @@ def criar_paciente(session: Session, dados: PacienteCreate) -> Paciente:
     return novo_paciente
 
 # retorna todos os pacientes cadastrados
-def listar_pacientes(session: Session) -> List[Paciente]:
+def listar_pacientes(session: Session) -> Sequence[Paciente]:
     statement = select(Paciente)
     resultado = session.exec(statement)
-    return list(resultado.all())
+    return resultado.all()
 
 # retorna um paciente pelo ID
 def buscar_paciente_por_id(session: Session, id_paciente: int) -> Optional[Paciente]:
