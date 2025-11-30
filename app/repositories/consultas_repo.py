@@ -1,6 +1,6 @@
 # funções que acessam o banco de dados consultas
 
-from typing import List, Optional
+from typing import List, Optional, Sequence
 from app.models.consulta import Consulta
 from sqlmodel import Session, select
 from app.schemas.consulta import ConsultaCreate
